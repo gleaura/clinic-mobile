@@ -26,6 +26,7 @@ const _allMenuItems = [
   _MenuItem(path: '/patients', icon: Icons.people_outline, label: 'Hastalar', group: 'KLİNİK', requiredPermission: PermissionKeys.patientRead),
   _MenuItem(path: '/appointments', icon: Icons.calendar_today_outlined, label: 'Randevular', group: 'KLİNİK', requiredPermission: PermissionKeys.appointmentRead),
   _MenuItem(path: '/treatments', icon: Icons.medical_services_outlined, label: 'Tedaviler', group: 'KLİNİK', requiredPermission: PermissionKeys.treatmentRead),
+  _MenuItem(path: '/staff', icon: Icons.badge_outlined, label: 'Personel', group: 'KLİNİK', requiredPermission: PermissionKeys.staffRead),
   _MenuItem(path: '/users', icon: Icons.person_outline, label: 'Kullanıcılar', group: 'YÖNETİM', requiredPermission: PermissionKeys.userRead),
   _MenuItem(path: '/roles', icon: Icons.star_outline, label: 'Roller', group: 'YÖNETİM', requiredPermission: PermissionKeys.rolesRead),
   _MenuItem(path: '/permissions', icon: Icons.security_outlined, label: 'Yetkiler', group: 'YÖNETİM', requiredPermission: PermissionKeys.permissionRead),

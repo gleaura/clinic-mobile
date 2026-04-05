@@ -25,7 +25,8 @@ mixin _$Appointment {
   String get patientFullName => throw _privateConstructorUsedError;
   String get appointmentDate => throw _privateConstructorUsedError;
   int? get durationMinutes => throw _privateConstructorUsedError;
-  String? get doctor => throw _privateConstructorUsedError;
+  int? get staffId => throw _privateConstructorUsedError;
+  String? get staffFullName => throw _privateConstructorUsedError;
   String? get type => throw _privateConstructorUsedError;
   String? get note => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
@@ -54,7 +55,8 @@ abstract class $AppointmentCopyWith<$Res> {
       String patientFullName,
       String appointmentDate,
       int? durationMinutes,
-      String? doctor,
+      int? staffId,
+      String? staffFullName,
       String? type,
       String? note,
       String status,
@@ -82,7 +84,8 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
     Object? patientFullName = null,
     Object? appointmentDate = null,
     Object? durationMinutes = freezed,
-    Object? doctor = freezed,
+    Object? staffId = freezed,
+    Object? staffFullName = freezed,
     Object? type = freezed,
     Object? note = freezed,
     Object? status = null,
@@ -110,9 +113,13 @@ class _$AppointmentCopyWithImpl<$Res, $Val extends Appointment>
           ? _value.durationMinutes
           : durationMinutes // ignore: cast_nullable_to_non_nullable
               as int?,
-      doctor: freezed == doctor
-          ? _value.doctor
-          : doctor // ignore: cast_nullable_to_non_nullable
+      staffId: freezed == staffId
+          ? _value.staffId
+          : staffId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      staffFullName: freezed == staffFullName
+          ? _value.staffFullName
+          : staffFullName // ignore: cast_nullable_to_non_nullable
               as String?,
       type: freezed == type
           ? _value.type
@@ -152,7 +159,8 @@ abstract class _$$AppointmentImplCopyWith<$Res>
       String patientFullName,
       String appointmentDate,
       int? durationMinutes,
-      String? doctor,
+      int? staffId,
+      String? staffFullName,
       String? type,
       String? note,
       String status,
@@ -178,7 +186,8 @@ class __$$AppointmentImplCopyWithImpl<$Res>
     Object? patientFullName = null,
     Object? appointmentDate = null,
     Object? durationMinutes = freezed,
-    Object? doctor = freezed,
+    Object? staffId = freezed,
+    Object? staffFullName = freezed,
     Object? type = freezed,
     Object? note = freezed,
     Object? status = null,
@@ -206,9 +215,13 @@ class __$$AppointmentImplCopyWithImpl<$Res>
           ? _value.durationMinutes
           : durationMinutes // ignore: cast_nullable_to_non_nullable
               as int?,
-      doctor: freezed == doctor
-          ? _value.doctor
-          : doctor // ignore: cast_nullable_to_non_nullable
+      staffId: freezed == staffId
+          ? _value.staffId
+          : staffId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      staffFullName: freezed == staffFullName
+          ? _value.staffFullName
+          : staffFullName // ignore: cast_nullable_to_non_nullable
               as String?,
       type: freezed == type
           ? _value.type
@@ -243,7 +256,8 @@ class _$AppointmentImpl implements _Appointment {
       required this.patientFullName,
       required this.appointmentDate,
       this.durationMinutes,
-      this.doctor,
+      this.staffId,
+      this.staffFullName,
       this.type,
       this.note,
       required this.status,
@@ -264,7 +278,9 @@ class _$AppointmentImpl implements _Appointment {
   @override
   final int? durationMinutes;
   @override
-  final String? doctor;
+  final int? staffId;
+  @override
+  final String? staffFullName;
   @override
   final String? type;
   @override
@@ -278,7 +294,7 @@ class _$AppointmentImpl implements _Appointment {
 
   @override
   String toString() {
-    return 'Appointment(id: $id, patientId: $patientId, patientFullName: $patientFullName, appointmentDate: $appointmentDate, durationMinutes: $durationMinutes, doctor: $doctor, type: $type, note: $note, status: $status, createdBy: $createdBy, createdDate: $createdDate)';
+    return 'Appointment(id: $id, patientId: $patientId, patientFullName: $patientFullName, appointmentDate: $appointmentDate, durationMinutes: $durationMinutes, staffId: $staffId, staffFullName: $staffFullName, type: $type, note: $note, status: $status, createdBy: $createdBy, createdDate: $createdDate)';
   }
 
   @override
@@ -295,7 +311,9 @@ class _$AppointmentImpl implements _Appointment {
                 other.appointmentDate == appointmentDate) &&
             (identical(other.durationMinutes, durationMinutes) ||
                 other.durationMinutes == durationMinutes) &&
-            (identical(other.doctor, doctor) || other.doctor == doctor) &&
+            (identical(other.staffId, staffId) || other.staffId == staffId) &&
+            (identical(other.staffFullName, staffFullName) ||
+                other.staffFullName == staffFullName) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.note, note) || other.note == note) &&
             (identical(other.status, status) || other.status == status) &&
@@ -314,7 +332,8 @@ class _$AppointmentImpl implements _Appointment {
       patientFullName,
       appointmentDate,
       durationMinutes,
-      doctor,
+      staffId,
+      staffFullName,
       type,
       note,
       status,
@@ -344,7 +363,8 @@ abstract class _Appointment implements Appointment {
       required final String patientFullName,
       required final String appointmentDate,
       final int? durationMinutes,
-      final String? doctor,
+      final int? staffId,
+      final String? staffFullName,
       final String? type,
       final String? note,
       required final String status,
@@ -365,7 +385,9 @@ abstract class _Appointment implements Appointment {
   @override
   int? get durationMinutes;
   @override
-  String? get doctor;
+  int? get staffId;
+  @override
+  String? get staffFullName;
   @override
   String? get type;
   @override
@@ -395,7 +417,7 @@ mixin _$CreateAppointmentRequest {
   int get patientId => throw _privateConstructorUsedError;
   String get appointmentDate => throw _privateConstructorUsedError;
   int? get durationMinutes => throw _privateConstructorUsedError;
-  String? get doctor => throw _privateConstructorUsedError;
+  int? get staffId => throw _privateConstructorUsedError;
   String? get type => throw _privateConstructorUsedError;
   String? get note => throw _privateConstructorUsedError;
 
@@ -419,7 +441,7 @@ abstract class $CreateAppointmentRequestCopyWith<$Res> {
       {int patientId,
       String appointmentDate,
       int? durationMinutes,
-      String? doctor,
+      int? staffId,
       String? type,
       String? note});
 }
@@ -443,7 +465,7 @@ class _$CreateAppointmentRequestCopyWithImpl<$Res,
     Object? patientId = null,
     Object? appointmentDate = null,
     Object? durationMinutes = freezed,
-    Object? doctor = freezed,
+    Object? staffId = freezed,
     Object? type = freezed,
     Object? note = freezed,
   }) {
@@ -460,10 +482,10 @@ class _$CreateAppointmentRequestCopyWithImpl<$Res,
           ? _value.durationMinutes
           : durationMinutes // ignore: cast_nullable_to_non_nullable
               as int?,
-      doctor: freezed == doctor
-          ? _value.doctor
-          : doctor // ignore: cast_nullable_to_non_nullable
-              as String?,
+      staffId: freezed == staffId
+          ? _value.staffId
+          : staffId // ignore: cast_nullable_to_non_nullable
+              as int?,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -489,7 +511,7 @@ abstract class _$$CreateAppointmentRequestImplCopyWith<$Res>
       {int patientId,
       String appointmentDate,
       int? durationMinutes,
-      String? doctor,
+      int? staffId,
       String? type,
       String? note});
 }
@@ -512,7 +534,7 @@ class __$$CreateAppointmentRequestImplCopyWithImpl<$Res>
     Object? patientId = null,
     Object? appointmentDate = null,
     Object? durationMinutes = freezed,
-    Object? doctor = freezed,
+    Object? staffId = freezed,
     Object? type = freezed,
     Object? note = freezed,
   }) {
@@ -529,10 +551,10 @@ class __$$CreateAppointmentRequestImplCopyWithImpl<$Res>
           ? _value.durationMinutes
           : durationMinutes // ignore: cast_nullable_to_non_nullable
               as int?,
-      doctor: freezed == doctor
-          ? _value.doctor
-          : doctor // ignore: cast_nullable_to_non_nullable
-              as String?,
+      staffId: freezed == staffId
+          ? _value.staffId
+          : staffId // ignore: cast_nullable_to_non_nullable
+              as int?,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -552,7 +574,7 @@ class _$CreateAppointmentRequestImpl implements _CreateAppointmentRequest {
       {required this.patientId,
       required this.appointmentDate,
       this.durationMinutes,
-      this.doctor,
+      this.staffId,
       this.type,
       this.note});
 
@@ -566,7 +588,7 @@ class _$CreateAppointmentRequestImpl implements _CreateAppointmentRequest {
   @override
   final int? durationMinutes;
   @override
-  final String? doctor;
+  final int? staffId;
   @override
   final String? type;
   @override
@@ -574,7 +596,7 @@ class _$CreateAppointmentRequestImpl implements _CreateAppointmentRequest {
 
   @override
   String toString() {
-    return 'CreateAppointmentRequest(patientId: $patientId, appointmentDate: $appointmentDate, durationMinutes: $durationMinutes, doctor: $doctor, type: $type, note: $note)';
+    return 'CreateAppointmentRequest(patientId: $patientId, appointmentDate: $appointmentDate, durationMinutes: $durationMinutes, staffId: $staffId, type: $type, note: $note)';
   }
 
   @override
@@ -588,7 +610,7 @@ class _$CreateAppointmentRequestImpl implements _CreateAppointmentRequest {
                 other.appointmentDate == appointmentDate) &&
             (identical(other.durationMinutes, durationMinutes) ||
                 other.durationMinutes == durationMinutes) &&
-            (identical(other.doctor, doctor) || other.doctor == doctor) &&
+            (identical(other.staffId, staffId) || other.staffId == staffId) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.note, note) || other.note == note));
   }
@@ -596,7 +618,7 @@ class _$CreateAppointmentRequestImpl implements _CreateAppointmentRequest {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, patientId, appointmentDate,
-      durationMinutes, doctor, type, note);
+      durationMinutes, staffId, type, note);
 
   /// Create a copy of CreateAppointmentRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -620,7 +642,7 @@ abstract class _CreateAppointmentRequest implements CreateAppointmentRequest {
       {required final int patientId,
       required final String appointmentDate,
       final int? durationMinutes,
-      final String? doctor,
+      final int? staffId,
       final String? type,
       final String? note}) = _$CreateAppointmentRequestImpl;
 
@@ -634,7 +656,7 @@ abstract class _CreateAppointmentRequest implements CreateAppointmentRequest {
   @override
   int? get durationMinutes;
   @override
-  String? get doctor;
+  int? get staffId;
   @override
   String? get type;
   @override
@@ -657,7 +679,7 @@ UpdateAppointmentRequest _$UpdateAppointmentRequestFromJson(
 mixin _$UpdateAppointmentRequest {
   String get appointmentDate => throw _privateConstructorUsedError;
   int? get durationMinutes => throw _privateConstructorUsedError;
-  String? get doctor => throw _privateConstructorUsedError;
+  int? get staffId => throw _privateConstructorUsedError;
   String? get type => throw _privateConstructorUsedError;
   String? get note => throw _privateConstructorUsedError;
 
@@ -680,7 +702,7 @@ abstract class $UpdateAppointmentRequestCopyWith<$Res> {
   $Res call(
       {String appointmentDate,
       int? durationMinutes,
-      String? doctor,
+      int? staffId,
       String? type,
       String? note});
 }
@@ -703,7 +725,7 @@ class _$UpdateAppointmentRequestCopyWithImpl<$Res,
   $Res call({
     Object? appointmentDate = null,
     Object? durationMinutes = freezed,
-    Object? doctor = freezed,
+    Object? staffId = freezed,
     Object? type = freezed,
     Object? note = freezed,
   }) {
@@ -716,10 +738,10 @@ class _$UpdateAppointmentRequestCopyWithImpl<$Res,
           ? _value.durationMinutes
           : durationMinutes // ignore: cast_nullable_to_non_nullable
               as int?,
-      doctor: freezed == doctor
-          ? _value.doctor
-          : doctor // ignore: cast_nullable_to_non_nullable
-              as String?,
+      staffId: freezed == staffId
+          ? _value.staffId
+          : staffId // ignore: cast_nullable_to_non_nullable
+              as int?,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -744,7 +766,7 @@ abstract class _$$UpdateAppointmentRequestImplCopyWith<$Res>
   $Res call(
       {String appointmentDate,
       int? durationMinutes,
-      String? doctor,
+      int? staffId,
       String? type,
       String? note});
 }
@@ -766,7 +788,7 @@ class __$$UpdateAppointmentRequestImplCopyWithImpl<$Res>
   $Res call({
     Object? appointmentDate = null,
     Object? durationMinutes = freezed,
-    Object? doctor = freezed,
+    Object? staffId = freezed,
     Object? type = freezed,
     Object? note = freezed,
   }) {
@@ -779,10 +801,10 @@ class __$$UpdateAppointmentRequestImplCopyWithImpl<$Res>
           ? _value.durationMinutes
           : durationMinutes // ignore: cast_nullable_to_non_nullable
               as int?,
-      doctor: freezed == doctor
-          ? _value.doctor
-          : doctor // ignore: cast_nullable_to_non_nullable
-              as String?,
+      staffId: freezed == staffId
+          ? _value.staffId
+          : staffId // ignore: cast_nullable_to_non_nullable
+              as int?,
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -801,7 +823,7 @@ class _$UpdateAppointmentRequestImpl implements _UpdateAppointmentRequest {
   const _$UpdateAppointmentRequestImpl(
       {required this.appointmentDate,
       this.durationMinutes,
-      this.doctor,
+      this.staffId,
       this.type,
       this.note});
 
@@ -813,7 +835,7 @@ class _$UpdateAppointmentRequestImpl implements _UpdateAppointmentRequest {
   @override
   final int? durationMinutes;
   @override
-  final String? doctor;
+  final int? staffId;
   @override
   final String? type;
   @override
@@ -821,7 +843,7 @@ class _$UpdateAppointmentRequestImpl implements _UpdateAppointmentRequest {
 
   @override
   String toString() {
-    return 'UpdateAppointmentRequest(appointmentDate: $appointmentDate, durationMinutes: $durationMinutes, doctor: $doctor, type: $type, note: $note)';
+    return 'UpdateAppointmentRequest(appointmentDate: $appointmentDate, durationMinutes: $durationMinutes, staffId: $staffId, type: $type, note: $note)';
   }
 
   @override
@@ -833,7 +855,7 @@ class _$UpdateAppointmentRequestImpl implements _UpdateAppointmentRequest {
                 other.appointmentDate == appointmentDate) &&
             (identical(other.durationMinutes, durationMinutes) ||
                 other.durationMinutes == durationMinutes) &&
-            (identical(other.doctor, doctor) || other.doctor == doctor) &&
+            (identical(other.staffId, staffId) || other.staffId == staffId) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.note, note) || other.note == note));
   }
@@ -841,7 +863,7 @@ class _$UpdateAppointmentRequestImpl implements _UpdateAppointmentRequest {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, appointmentDate, durationMinutes, doctor, type, note);
+      runtimeType, appointmentDate, durationMinutes, staffId, type, note);
 
   /// Create a copy of UpdateAppointmentRequest
   /// with the given fields replaced by the non-null parameter values.
@@ -864,7 +886,7 @@ abstract class _UpdateAppointmentRequest implements UpdateAppointmentRequest {
   const factory _UpdateAppointmentRequest(
       {required final String appointmentDate,
       final int? durationMinutes,
-      final String? doctor,
+      final int? staffId,
       final String? type,
       final String? note}) = _$UpdateAppointmentRequestImpl;
 
@@ -876,7 +898,7 @@ abstract class _UpdateAppointmentRequest implements UpdateAppointmentRequest {
   @override
   int? get durationMinutes;
   @override
-  String? get doctor;
+  int? get staffId;
   @override
   String? get type;
   @override

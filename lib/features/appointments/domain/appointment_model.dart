@@ -11,7 +11,8 @@ class Appointment with _$Appointment {
     required String patientFullName,
     required String appointmentDate,
     int? durationMinutes,
-    String? doctor,
+    int? staffId,
+    String? staffFullName,
     String? type,
     String? note,
     required String status,
@@ -29,7 +30,7 @@ class CreateAppointmentRequest with _$CreateAppointmentRequest {
     required int patientId,
     required String appointmentDate,
     int? durationMinutes,
-    String? doctor,
+    int? staffId,
     String? type,
     String? note,
   }) = _CreateAppointmentRequest;
@@ -43,7 +44,7 @@ class UpdateAppointmentRequest with _$UpdateAppointmentRequest {
   const factory UpdateAppointmentRequest({
     required String appointmentDate,
     int? durationMinutes,
-    String? doctor,
+    int? staffId,
     String? type,
     String? note,
   }) = _UpdateAppointmentRequest;

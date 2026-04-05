@@ -8,6 +8,7 @@ import 'package:clinic_mobile/features/dashboard/presentation/dashboard_page.dar
 import 'package:clinic_mobile/features/patients/presentation/patients_page.dart';
 import 'package:clinic_mobile/features/appointments/presentation/appointments_page.dart';
 import 'package:clinic_mobile/features/treatments/presentation/treatments_page.dart';
+import 'package:clinic_mobile/features/staff/presentation/staff_page.dart';
 import 'package:clinic_mobile/features/users/presentation/users_page.dart';
 import 'package:clinic_mobile/features/roles/presentation/roles_page.dart';
 import 'package:clinic_mobile/features/permissions/presentation/permissions_page.dart';
@@ -43,6 +44,7 @@ final routerProvider = Provider<GoRouter>((ref) {
           GoRoute(path: '/patients', builder: (_, __) => const PatientsPage()),
           GoRoute(path: '/appointments', builder: (_, __) => const AppointmentsPage()),
           GoRoute(path: '/treatments', builder: (_, __) => const TreatmentsPage()),
+          GoRoute(path: '/staff', builder: (_, __) => const StaffPage()),
           GoRoute(path: '/users', builder: (_, __) => const UsersPage()),
           GoRoute(path: '/roles', builder: (_, __) => const RolesPage()),
           GoRoute(path: '/permissions', builder: (_, __) => const PermissionsPage()),

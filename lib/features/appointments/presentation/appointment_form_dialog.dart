@@ -1,15 +1,19 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:clinic_mobile/core/constants/app_colors.dart';
 import 'package:clinic_mobile/core/network/api_exceptions.dart';
 import 'package:clinic_mobile/core/utils/date_utils.dart';
 import 'package:clinic_mobile/features/appointments/domain/appointment_model.dart';
+import 'package:clinic_mobile/features/staff/data/staff_repository.dart';
+import 'package:clinic_mobile/features/staff/domain/staff_model.dart';
 
 class AppointmentFormDialog extends StatefulWidget {
   final Appointment? appointment;
   final Future<void> Function(Object request) onSave;
+  final Dio dio;
 
   const AppointmentFormDialog(
-      {super.key, this.appointment, required this.onSave});
+      {super.key, this.appointment, required this.onSave, required this.dio});
 
   @override
   State<AppointmentFormDialog> createState() => _AppointmentFormDialogState();
@@ -19,10 +23,11 @@ class _AppointmentFormDialogState extends State<AppointmentFormDialog> {
   final _formKey = GlobalKey<FormState>();
   late final TextEditingController _patientId;
   late final TextEditingController _durationMinutes;
-  late final TextEditingController _doctor;
   late final TextEditingController _type;
   late final TextEditingController _note;
   DateTime? _appointmentDate;
+  int? _selectedStaffId;
+  List<Staff> _staffList = [];
   bool _saving = false;
 
   bool get isEditing => widget.appointment != null;
@@ -34,17 +39,25 @@ class _AppointmentFormDialogState extends State<AppointmentFormDialog> {
     _patientId = TextEditingController(text: a?.patientId.toString());
     _durationMinutes =
         TextEditingController(text: a?.durationMinutes?.toString());
-    _doctor = TextEditingController(text: a?.doctor);
     _type = TextEditingController(text: a?.type);
     _note = TextEditingController(text: a?.note);
     _appointmentDate = fromApiDateTime(a?.appointmentDate);
+    _selectedStaffId = a?.staffId;
+    _loadStaff();
+  }
+
+  Future<void> _loadStaff() async {
+    try {
+      final repo = StaffRepository(dio: widget.dio);
+      final res = await repo.getStaffList(page: 0, size: 1000, status: 'ACTIVE');
+      if (mounted) setState(() => _staffList = res.content);
+    } catch (_) {}
   }
 
   @override
   void dispose() {
     _patientId.dispose();
     _durationMinutes.dispose();
-    _doctor.dispose();
     _type.dispose();
     _note.dispose();
     super.dispose();
@@ -99,8 +112,7 @@ class _AppointmentFormDialogState extends State<AppointmentFormDialog> {
         await widget.onSave(UpdateAppointmentRequest(
           appointmentDate: toApiDateTime(_appointmentDate)!,
           durationMinutes: duration,
-          doctor:
-              _doctor.text.trim().isEmpty ? null : _doctor.text.trim(),
+          staffId: _selectedStaffId,
           type: _type.text.trim().isEmpty ? null : _type.text.trim(),
           note: _note.text.trim().isEmpty ? null : _note.text.trim(),
         ));
@@ -109,8 +121,7 @@ class _AppointmentFormDialogState extends State<AppointmentFormDialog> {
           patientId: int.parse(_patientId.text.trim()),
           appointmentDate: toApiDateTime(_appointmentDate)!,
           durationMinutes: duration,
-          doctor:
-              _doctor.text.trim().isEmpty ? null : _doctor.text.trim(),
+          staffId: _selectedStaffId,
           type: _type.text.trim().isEmpty ? null : _type.text.trim(),
           note: _note.text.trim().isEmpty ? null : _note.text.trim(),
         ));
@@ -213,9 +224,14 @@ class _AppointmentFormDialogState extends State<AppointmentFormDialog> {
                   keyboardType: TextInputType.number,
                 ),
                 const SizedBox(height: 12),
-                TextFormField(
-                  controller: _doctor,
-                  decoration: const InputDecoration(labelText: 'Doktor'),
+                DropdownButtonFormField<int>(
+                  value: _selectedStaffId,
+                  decoration: const InputDecoration(labelText: 'Personel'),
+                  items: _staffList.map((s) => DropdownMenuItem(
+                    value: s.id,
+                    child: Text('${s.firstName} ${s.lastName}${s.title != null ? ' (${s.title})' : ''}'),
+                  )).toList(),
+                  onChanged: (v) => setState(() => _selectedStaffId = v),
                 ),
                 const SizedBox(height: 12),
                 TextFormField(

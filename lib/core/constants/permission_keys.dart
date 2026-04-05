@@ -19,6 +19,12 @@ class PermissionKeys {
   static const String treatmentUpdate = 'TREATMENT_UPDATE';
   static const String treatmentDelete = 'TREATMENT_DELETE';
 
+  // Staff
+  static const String staffRead = 'STAFF_READ';
+  static const String staffCreate = 'STAFF_CREATE';
+  static const String staffUpdate = 'STAFF_UPDATE';
+  static const String staffDelete = 'STAFF_DELETE';
+
   // User
   static const String userRead = 'USER_READ';
   static const String userCreate = 'USER_CREATE';

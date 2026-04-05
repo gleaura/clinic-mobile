@@ -13,7 +13,8 @@ _$AppointmentImpl _$$AppointmentImplFromJson(Map<String, dynamic> json) =>
       patientFullName: json['patientFullName'] as String,
       appointmentDate: json['appointmentDate'] as String,
       durationMinutes: (json['durationMinutes'] as num?)?.toInt(),
-      doctor: json['doctor'] as String?,
+      staffId: (json['staffId'] as num?)?.toInt(),
+      staffFullName: json['staffFullName'] as String?,
       type: json['type'] as String?,
       note: json['note'] as String?,
       status: json['status'] as String,
@@ -28,7 +29,8 @@ Map<String, dynamic> _$$AppointmentImplToJson(_$AppointmentImpl instance) =>
       'patientFullName': instance.patientFullName,
       'appointmentDate': instance.appointmentDate,
       'durationMinutes': instance.durationMinutes,
-      'doctor': instance.doctor,
+      'staffId': instance.staffId,
+      'staffFullName': instance.staffFullName,
       'type': instance.type,
       'note': instance.note,
       'status': instance.status,
@@ -42,7 +44,7 @@ _$CreateAppointmentRequestImpl _$$CreateAppointmentRequestImplFromJson(
       patientId: (json['patientId'] as num).toInt(),
       appointmentDate: json['appointmentDate'] as String,
       durationMinutes: (json['durationMinutes'] as num?)?.toInt(),
-      doctor: json['doctor'] as String?,
+      staffId: (json['staffId'] as num?)?.toInt(),
       type: json['type'] as String?,
       note: json['note'] as String?,
     );
@@ -53,7 +55,7 @@ Map<String, dynamic> _$$CreateAppointmentRequestImplToJson(
       'patientId': instance.patientId,
       'appointmentDate': instance.appointmentDate,
       'durationMinutes': instance.durationMinutes,
-      'doctor': instance.doctor,
+      'staffId': instance.staffId,
       'type': instance.type,
       'note': instance.note,
     };
@@ -63,7 +65,7 @@ _$UpdateAppointmentRequestImpl _$$UpdateAppointmentRequestImplFromJson(
     _$UpdateAppointmentRequestImpl(
       appointmentDate: json['appointmentDate'] as String,
       durationMinutes: (json['durationMinutes'] as num?)?.toInt(),
-      doctor: json['doctor'] as String?,
+      staffId: (json['staffId'] as num?)?.toInt(),
       type: json['type'] as String?,
       note: json['note'] as String?,
     );
@@ -73,7 +75,7 @@ Map<String, dynamic> _$$UpdateAppointmentRequestImplToJson(
     <String, dynamic>{
       'appointmentDate': instance.appointmentDate,
       'durationMinutes': instance.durationMinutes,
-      'doctor': instance.doctor,
+      'staffId': instance.staffId,
       'type': instance.type,
       'note': instance.note,
     };

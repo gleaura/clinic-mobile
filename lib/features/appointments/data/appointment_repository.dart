@@ -66,4 +66,18 @@ class AppointmentRepository {
       throw DioClient.handleError(e);
     }
   }
+
+  Future<List<Appointment>> getDailyAppointments(String date) async {
+    try {
+      final response = await _dio.get(
+        '${ApiConstants.appointments}/daily',
+        queryParameters: {'date': date},
+      );
+      return (response.data as List)
+          .map((e) => Appointment.fromJson(e as Map<String, dynamic>))
+          .toList();
+    } on DioException catch (e) {
+      throw DioClient.handleError(e);
+    }
+  }
 }
