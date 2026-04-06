@@ -3,14 +3,12 @@ FROM ghcr.io/cirruslabs/flutter:stable AS builder
 
 WORKDIR /app
 
+COPY pubspec.yaml pubspec.lock ./
+
+RUN flutter pub get
+
 COPY . .
 
-# Force correct API URL
-RUN sed -i "s|http://localhost:8090|https://clinic-service.onbtech.com|g" lib/core/constants/api_constants.dart
-RUN cat lib/core/constants/api_constants.dart
-
-RUN flutter clean
-RUN flutter pub get
 RUN dart run build_runner build --delete-conflicting-outputs
 RUN flutter build web --release
 

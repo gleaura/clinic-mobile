@@ -1,3 +1,7 @@
+build/
+.dart_tool/
 .git/
-.idea/
-*.iml
+.gitignore
+*.md
+android/
+ios/
