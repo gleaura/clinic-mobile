@@ -1,13 +1,13 @@
 # Docker Commands - clinic-mobile
 
 ## Build
-docker build -t ozanemrahyakupoglu/clinic-mobile:1.1.0 .
+docker build --no-cache -t ozanemrahyakupoglu/clinic-mobile:1.1.1 .
 
 ## Push (Docker Hub)
-docker push ozanemrahyakupoglu/clinic-mobile:1.1.0
+docker push ozanemrahyakupoglu/clinic-mobile:1.1.1
 
 ## Run
 docker run -d \
   --name clinic-mobile \
   -p 8092:8092 \
-  ozanemrahyakupoglu/clinic-mobile:1.1.0
+  ozanemrahyakupoglu/clinic-mobile:1.1.1
