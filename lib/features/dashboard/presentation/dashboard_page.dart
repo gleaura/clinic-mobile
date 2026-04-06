@@ -61,6 +61,8 @@ class _DashboardPageState extends ConsumerState<DashboardPage> {
 
   Future<void> _fetchDailyAppointments() async {
     if (!mounted) return;
+    final user = ref.read(authProvider).valueOrNull;
+    if (user == null) return;
     setState(() => _loading = true);
     try {
       final dio = ref.read(dioProvider);
