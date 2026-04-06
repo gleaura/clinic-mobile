@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:clinic_mobile/core/constants/api_constants.dart';
 import 'package:clinic_mobile/core/constants/app_colors.dart';
 import 'package:clinic_mobile/features/auth/presentation/auth_provider.dart';
 
@@ -85,8 +86,8 @@ class SettingsPage extends ConsumerWidget {
                 ListTile(
                   leading: const Icon(Icons.code),
                   title: const Text('API URL'),
-                  trailing: const Text('localhost:8090',
-                      style: TextStyle(color: AppColors.textSecondary, fontSize: 12)),
+                  trailing: Text(ApiConstants.baseUrl,
+                      style: const TextStyle(color: AppColors.textSecondary, fontSize: 12)),
                 ),
               ],
             ),
