@@ -10,6 +10,8 @@ RUN flutter pub get
 COPY . .
 
 RUN dart run build_runner build --delete-conflicting-outputs
+RUN flutter clean
+RUN flutter pub get
 RUN flutter build web --release
 
 # ---- Runtime Stage ----
