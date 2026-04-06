@@ -5,17 +5,14 @@ WORKDIR /app
 
 COPY . .
 
-# Debug: verify source file
+# Force correct API URL
+RUN sed -i "s|http://localhost:8090|https://clinic-service.onbtech.com|g" lib/core/constants/api_constants.dart
 RUN cat lib/core/constants/api_constants.dart
 
 RUN flutter clean
 RUN flutter pub get
 RUN dart run build_runner build --delete-conflicting-outputs
 RUN flutter build web --release
-
-# Debug: verify built output
-RUN grep -r "localhost" build/web/ | head -5 || echo "NO LOCALHOST FOUND"
-RUN grep -r "clinic-service.onbtech" build/web/ | head -5 || echo "NO ONBTECH FOUND"
 
 # ---- Runtime Stage ----
 FROM nginx:alpine AS runtime
