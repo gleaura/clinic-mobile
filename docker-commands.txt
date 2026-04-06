@@ -9,5 +9,5 @@ docker push ozanemrahyakupoglu/clinic-mobile:1.0.0
 ## Run
 docker run -d \
   --name clinic-mobile \
-  -p 8092:5174 \
+  -p 8092:8092 \
   ozanemrahyakupoglu/clinic-mobile:1.0.0
