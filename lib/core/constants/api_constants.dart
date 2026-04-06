@@ -1,7 +1,7 @@
 class ApiConstants {
   ApiConstants._();
 
-  static const String baseUrl = 'http://localhost:8090/api/v1';
+  static const String baseUrl = 'https://clinic-service.onbtech.com/api/v1';
 
   // Auth
   static const String login = '/auth/login';
